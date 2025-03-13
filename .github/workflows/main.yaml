@@ -19,7 +19,7 @@ jobs:
           git config --global commit.gpgsign false
           git config --global tag.gpgSign false
           git config --global user.email "vignesh.m1683@gmail.com"
-          git config --global user.name "vigneshm1683"
+          git config --global user.name "vigneshm163"
         
       - name: Mirror to Bitbucket
         uses: heussd/mirror-to-bitbucket-github-action@v2
