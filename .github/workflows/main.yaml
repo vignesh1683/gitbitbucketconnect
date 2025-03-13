@@ -13,6 +13,9 @@ jobs:
         with:
           fetch-depth: 0 
           
+      - name: Get Current Branch
+        run: echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+        
       - name: Configure Git User (Force Bitbucket User as "vigneshm1683")
         run: |
           git config --global user.name "vigneshm1683"
@@ -22,7 +25,7 @@ jobs:
 
       - name: Reformat Git History to Change Committer
         run: |
-          git checkout main
+          git checkout $CURRENT_BRANCH
           git commit --amend --no-edit --author="vigneshm1683 <vignesh.m1683@gmail.com>"
           git rebase --root --committer-date-is-author-date
         
