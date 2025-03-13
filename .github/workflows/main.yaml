@@ -14,11 +14,12 @@ jobs:
           fetch-depth: 0 
           
       - name: Disable GPG Signing
+      - name: Configure Git User vigneshm1683
         run: |
           git config --global commit.gpgsign false
           git config --global tag.gpgSign false
           git config --global user.email "vignesh.m1683@gmail.com"
-          git config --global user.name "vignesh1683"
+          git config --global user.name "vigneshm1683"
         
       - name: Mirror to Bitbucket
         uses: heussd/mirror-to-bitbucket-github-action@v2
