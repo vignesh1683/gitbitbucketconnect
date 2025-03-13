@@ -14,7 +14,9 @@ jobs:
           fetch-depth: 0 
           
       - name: Disable GPG Signing
-        run: git config --global commit.gpgsign false
+        run: |
+          git config --global commit.gpgsign false
+          git config --global tag.gpgSign false
         
       - name: Mirror to Bitbucket
         uses: heussd/mirror-to-bitbucket-github-action@v2
