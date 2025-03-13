@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0 
           
-      - name: Configure Git User vigneshm1683
+      - name: Configure Git User (Set Bitbucket User as "vigneshm1683")
         run: |
           git config --global commit.gpgsign false
           git config --global tag.gpgSign false
