@@ -13,12 +13,18 @@ jobs:
         with:
           fetch-depth: 0 
           
-      - name: Configure Git User (Set Bitbucket User as "vigneshm1683")
+      - name: Configure Git User (Force Bitbucket User as "vigneshm1683")
         run: |
+          git config --global user.name "vigneshm1683"
+          git config --global user.email "vignesh.m1683@gmail.com"
           git config --global commit.gpgsign false
           git config --global tag.gpgSign false
-          git config --global user.email "vignesh.m1683@gmail.com"
-          git config --global user.name "vigneshm1683"
+
+      - name: Reformat Git History to Change Committer
+        run: |
+          git checkout main
+          git commit --amend --no-edit --author="vigneshm1683 <vignesh.m1683@gmail.com>"
+          git rebase --root --committer-date-is-author-date
         
       - name: Mirror to Bitbucket
         uses: heussd/mirror-to-bitbucket-github-action@v2
